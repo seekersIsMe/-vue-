@@ -1,6 +1,9 @@
 # test
 
 > sss
+## 两篇较好的文章
+* https://juejin.im/post/5cb3eed65188251b0351f2c4
+* https://github.com/coolriver/coolriver-site/blob/master/markdown/vue-mixin-hoc.md
 
 ## Build Setup
 
