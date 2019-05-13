@@ -1,5 +1,15 @@
 <script>
 import _ from 'lodash'
+const throttle = function (fn, wait = 50, ctx) {
+    let timer
+    let lastCall = 0
+    return function (...params) {
+        const now = new Date().getTime()
+        if (now - lastCall < wait) return
+        lastCall = now
+        fn.apply(ctx, params)
+    }
+}
 export default {
     props: {
         time: Number,
