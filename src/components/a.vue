@@ -8,16 +8,25 @@
         </template>
       </slot>
     </sole_>
+    <div>{{userName.userName}}</div>
   </div>
 </template>
 
 <script>
+import mixin from './emitter'
 import sole_ from './slot';
 export default {
   components: {
     sole_
   },
-  name: 'HelloWorld',
+  mixins: [mixin],
+  name: 'a',
+  inject: ['userName'],
+  created () {
+    this.$on('send',(data) => {
+      console.log('send', data)
+    })
+  },
   data () {
     return {
       count: 0,
@@ -28,6 +37,8 @@ export default {
   },
   methods: {
     clickSolt() {
+      console.log(this.userName);
+      this.userName.userName = 'hui';
       console.log(`点击了${this.count++}`);
     }
   }
