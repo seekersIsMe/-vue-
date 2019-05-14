@@ -38,7 +38,10 @@ export default {
         return vnode;
     },
     mounted() {
-        console.log(this.$slots.default[0])
+        // 不论当前插槽是否带有作用域，我们都推荐始终通过 $scopedSlots 访问它们。这不仅仅使得在未来添加作用域变得简单，也可以让你最终轻松迁移到所有插槽都是函数的 Vue 3。
+        // 建议使用this.$scopedSlots.default()获取vnode
+        console.log(this.$scopedSlots.default())
+        console.log(this.$slots)
     }
 }
 </script>
