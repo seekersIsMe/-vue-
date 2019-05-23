@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const PrerenderSpaPlugin = require('prerender-spa-plugin')
 
 const env = require('../config/prod.env')
 
@@ -28,6 +29,17 @@ const webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   plugins: [
+    // 预加载
+    new PrerenderSpaPlugin(
+      // 输出目录的绝对路径
+      path.join(__dirname, '../dist'),
+      // 预渲染的路由
+      ['/home', '/a', '/b' ],
+      {
+        // 监听到自定事件时捕获
+        renderAfterDocumentEvent: 'sketelon-render-event',// 呈现预渲染页面的时间，例如document.dispatchEvent(new Event('sketelon-render-event'))
+      }
+    ),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env

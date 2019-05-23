@@ -22,10 +22,15 @@ export default {
   mixins: [mixin],
   name: 'a',
   inject: ['userName'],
+  beforeCreate(){
+     document.dispatchEvent(new Event('sketelon-render-event'))
+  },
   created () {
     this.$on('send',(data) => {
       console.log('send', data)
     })
+  },
+  mounted () {
   },
   data () {
     return {

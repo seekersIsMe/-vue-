@@ -92,6 +92,9 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   },
+  beforeCreate(){
+     document.dispatchEvent(new Event('sketelon-render-event'))
+  },
   methods: {
     login () {
       console.log('点击了');

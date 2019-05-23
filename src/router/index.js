@@ -7,9 +7,15 @@ const b = () => import('../components/b')
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
+      name: 'HelloWorld',
+      redirect: "/home"
+    },
+    {
+      path: '/home',
       name: 'HelloWorld',
       component: HelloWorld
     },

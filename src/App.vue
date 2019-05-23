@@ -27,6 +27,9 @@ export default {
   //     'userName': 'zhan'
   //   }
   // },
+    beforeCreate(){
+     document.dispatchEvent(new Event('sketelon-render-event'))
+  },
   data() {
     console.log("data");
     return {
