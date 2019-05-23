@@ -1,5 +1,7 @@
 ## 安装prerender-spa-plugin
+* (插件使用见npm官网)[https://www.npmjs.com/package/prerender-spa-plugin]
 * npm install prerender-spa-plugin --save-dev
+***
 ## 配置prerender-spa-plugin插件
 ```
 const PrerenderSpaPlugin = require('prerender-spa-plugin')
@@ -17,6 +19,7 @@ const PrerenderSpaPlugin = require('prerender-spa-plugin')
     ),
  ]
 ```
+***
 ## 设置路由,模式为history
 ```
 import Vue from 'vue'
@@ -53,7 +56,7 @@ export default new Router({
   ]
 })
 ```
-
+****
 ## 配置nginx
 ```
     location / {
@@ -62,6 +65,7 @@ export default new Router({
 			try_files $uri $uri/ /index.html;
         }
 ```
+****
 ## 触发 
 * 该例子中是以自定义事件的形式来触发
 ```
