@@ -1,3 +1,4 @@
+# prerender-spa-plugin
 ## 安装prerender-spa-plugin
 * (插件使用见npm官网)[https://www.npmjs.com/package/prerender-spa-plugin]
 * npm install prerender-spa-plugin --save-dev
@@ -72,3 +73,5 @@ export default new Router({
  document.dispatchEvent(new Event('sketelon-render-event'))
 ```
 
+# page-skeleton-webpack-plugin
+(饿了么的骨架屏幕方案)[https://github.com/ElemeFE/page-skeleton-webpack-plugin]
