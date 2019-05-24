@@ -81,17 +81,34 @@
       </li>
       <button @click="login">地啊你急</button>
     </ul>
+   <template v-for='index in 100'>
+     <vue-lazy-component>
+          <myC/>
+          <mySkeleton slot="skeleton" />
+    </vue-lazy-component>
+   </template>
   </div>
 </template>
 
 <script>
+import myC from './c.vue';
+import myA from './a.vue';
+import myB from './b.vue';
+import mySkeleton from './skeleton.vue';
 export default {
   name: 'HelloWorld',
+  components: {
+    myC,
+    myA,
+    myB,
+    mySkeleton
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
   },
+  
   beforeCreate(){
      document.dispatchEvent(new Event('sketelon-render-event'))
   },
